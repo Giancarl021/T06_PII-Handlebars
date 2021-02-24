@@ -11,7 +11,9 @@ app.use(express.json());
 
 app.engine('hbs', handlebars({ extname: '.hbs', defaultLayout: 'main' }));
 app.set('view engine', 'hbs');
-app.set('views', locate('src/views'));
+app.set('views', locate('src/web/views'));
+
+app.use('/assets', express.static(locate('src/web/assets')));
 
 app.use(routes);
 
